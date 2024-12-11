@@ -1,36 +1,48 @@
 package stepDefs;
 
-import io.cucumber.java.*;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriverException;
 import utils.Driver;
 
 public class Hooks extends Driver {
 
-    @Before()
-    public static void setup() {
+    // Method to set up before each test scenario
+    @Before
+    public void setUp() throws Throwable {
+        // Check if driver is not initialized
         if (driver == null) {
-            createBrowser();
+            // Initialize browser
+            CreateBrowser();
         }
+        // Maximize the browser window
         driver.manage().window().maximize();
+        // Delete all cookies
         driver.manage().deleteAllCookies();
     }
 
-    @After()
-    public static void tearDown(Scenario scenario) {
+    // Method to tear down after each test scenario
+    @After
+    public void tearDown(Scenario scenario) {
+        // Check if scenario failed
         if (scenario.isFailed()) {
             try {
-                System.out.println("Failed scenario: " + scenario.getName());
-                String url = driver.getCurrentUrl();
-                scenario.log(url);
-                byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-                scenario.attach(screenshot, "image/png", url);
+                // Print name of failed scenario
+                System.out.println("Failed Scenario: " + scenario.getName());
+                // Log current URL of driver
+                scenario.log(driver.getCurrentUrl());
             } catch (WebDriverException e) {
+                // Throw WebDriverException if unable to log URL
                 throw new WebDriverException(e.getMessage());
             }
         }
-        driver.close();
+        // Delete all cookies
+        driver.manage().deleteAllCookies();
+        // Quit the driver instance
         driver.quit();
+        // Set driver to null
+        driver = null;
     }
+
 }
