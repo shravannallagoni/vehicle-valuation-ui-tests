@@ -37,10 +37,11 @@ public class Driver {
         options.addArguments("--enable-javascript");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
         // Check if running headless mode
-        if (System.getProperty("headLess").equals("true")) {
-            options.addArguments("--headless=new");
-        }
+//        if (System.getProperty("headLess").equals("true")) {
+//            options.addArguments("--headless=new");
+//        }
         // Setup ChromeDriver and return instance
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);

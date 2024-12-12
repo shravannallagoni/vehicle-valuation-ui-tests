@@ -8,9 +8,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public abstract class BasePage {
-    protected static WebDriver driver;
+    public static WebDriver driver;
     protected String pageHeading = "Get a free Car Valuation";
-    protected String pageTitle;
+    protected String pageTitle = "Free car valuations - How much is my car worth? | MOTORS";
+
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public void acceptCookies() {
         try {
@@ -23,7 +27,7 @@ public abstract class BasePage {
         }
     }
     public void assertTitleUrlHeading() {
-        Assert.assertEquals("URL did not match", "https://www.cazoo.co.uk/value-my-car/", driver.getCurrentUrl());
+        Assert.assertEquals("URL did not match", "https://www.motors.co.uk/sell-my-car/car-valuation/", driver.getCurrentUrl());
         Assert.assertEquals("Title did not match", pageTitle, driver.getTitle());
         Assert.assertEquals("Heading did not match", pageHeading, driver.findElement(By.tagName("h1")).getText());
     }
