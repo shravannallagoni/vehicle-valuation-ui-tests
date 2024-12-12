@@ -9,19 +9,19 @@ public class VehicleValuationPage extends BasePage {
     public VehicleValuationPage(WebDriver driver) {
         super(driver);
     }
-
     public void navigateTo() {
         driver.get("https://www.cazoo.co.uk/value-my-car/");
         acceptCookies();
     }
     public void inputRegNumber(String registrationNumbers) {
         fillInputField("//*[@id=\"vyv-form\"]/div/div[1]/div[1]/input", registrationNumbers);
-        }
-    public void inputMileage(){
-    fillInputField("//*[@id=\"vyv-form\"]/div/div[1]/div[2]/input", "100");}
-    public void inputPostcode(){
-        fillInputField("//*[@id=\"vyv-form\"]/div/div[1]/div[3]/input", "NE11FX");}
-
+    }
+    public void inputMileage() {
+        fillInputField("//*[@id=\"vyv-form\"]/div/div[1]/div[2]/input", "100");
+    }
+    public void inputPostcode() {
+        fillInputField("//*[@id=\"vyv-form\"]/div/div[1]/div[3]/input", "NE11FX");
+    }
     public void submit() {
         WebElement submitBtn = driver.findElement(By.xpath("//*[@id=\"vyv-form\"]/div/div[2]/button"));
         submitBtn.click();
@@ -29,18 +29,8 @@ public class VehicleValuationPage extends BasePage {
     public String vehicleDetails() {
         String vehdeets =
                 driver.findElement(
-                        By.cssSelector("#valueMyVehicle > div > section > ol > li:nth-child(2) > section > div > div.vyv__section.vyv__section--1 > div"))
-                .getText();
-
-        String[] lines = vehdeets.split("\n");
-        if(lines.length > 0){
-            String lastLine = lines[lines.length-1];
-            System.out.println("-----------" + lastLine);
-        }
-        //         driver.findElement(By.xpath("//button[contains(text(), 'Not my vehicle')]")).click();
-
-
-//        System.out.println("------output details-- " + vehdeets.toString().trim().strip().);
+                                By.cssSelector("#valueMyVehicle > div > section > ol > li:nth-child(2) > section > div > div.vyv__section.vyv__section--1 > div"))
+                        .getText();
         return vehdeets;
     }
 
@@ -49,7 +39,5 @@ public class VehicleValuationPage extends BasePage {
         inputField.clear();
         inputField.sendKeys(value);
     }
-
-
 }
 

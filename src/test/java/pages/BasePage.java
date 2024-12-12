@@ -9,6 +9,7 @@ import java.time.Duration;
 
 public abstract class BasePage {
     public static WebDriver driver;
+    protected String pageRedirectUrl = "https://www.motors.co.uk/sell-my-car/car-valuation/";
     protected String pageHeading = "Get a free Car Valuation";
     protected String pageTitle = "Free car valuations - How much is my car worth? | MOTORS";
 
@@ -23,11 +24,11 @@ public abstract class BasePage {
             acceptCookiesBtn.click();
         } catch (TimeoutException e) {
             System.out.println("Cookies button not found or already accepted");
-
         }
     }
+
     public void assertTitleUrlHeading() {
-        Assert.assertEquals("URL did not match", "https://www.motors.co.uk/sell-my-car/car-valuation/", driver.getCurrentUrl());
+        Assert.assertEquals("URL did not match", pageRedirectUrl, driver.getCurrentUrl());
         Assert.assertEquals("Title did not match", pageTitle, driver.getTitle());
         Assert.assertEquals("Heading did not match", pageHeading, driver.findElement(By.tagName("h1")).getText());
     }
