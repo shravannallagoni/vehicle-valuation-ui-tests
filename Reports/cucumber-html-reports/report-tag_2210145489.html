@@ -74,7 +74,7 @@ $(document).ready(function() {
   <tbody>
     <tr class="info">
       <td>No Name (add projectName to cucumber-reporting.properties)</td>
-      <td>12 Dec 2024, 21:00</td>
+      <td>13 Dec 2024, 01:15</td>
     </tr>
   </tbody>
 </table>
@@ -127,19 +127,19 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">@test</td>
-          <td      class="passed"    >3</td>
-          <td      class="failed"    >1</td>
+          <td      class="passed"    >4</td>
+          <td >0</td>
           <td >0</td>
           <td >0</td>
           <td >0</td>
           <td class="total">4</td>
 
+          <td  class="passed"    >1</td>
           <td >0</td>
-          <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="17680497000">17.680</td>
-          <td class="failed">Failed</td>
+          <td class="duration" data-value="61494077000">1:1.494</td>
+          <td class="passed">Passed</td>
         </tr>
         </tbody>
 
@@ -171,7 +171,7 @@ $(document).ready(function() {
 <div class="element">
     <div class="indention">
       <b>Feature:</b>
-      <a href="report-feature_1533799433.html">Process text file</a>
+      <a href="report-feature_1533799433.html">Search vehicle valuation information</a>
     </div>
 
 
@@ -181,14 +181,14 @@ $(document).ready(function() {
 </div>
 
 
-  <span class="lead-duration duration">17.680</span>
+  <span class="lead-duration duration">1:1.494</span>
 
 
-  <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
+  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Scenario</span>
-  <span class="name">Read and process the text file</span>
+  <span class="name">Read the input text file and compare the vehicle search results with the output text file</span>
 
 
      <i class="chevron fa fa-fw"></i>
@@ -197,7 +197,7 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details  in ">
+  <div id="element-1" class="collapse collapsable-details ">
 
 
   <div class="inner-level hooks-element-before">
@@ -219,7 +219,7 @@ $(document).ready(function() {
             <span class="keyword indention">Before</span>
               <span class="location name">stepDefs.Hooks.setUp()</span>
 
-  <span class="lead-duration duration">2.906</span>
+  <span class="lead-duration duration">2.805</span>
 
           </div>
 
@@ -252,9 +252,9 @@ $(document).ready(function() {
 
 
 <div class="steps inner-level">
-  <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-3">
+  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-3">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
 
@@ -264,7 +264,7 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-3" class="inner-level collapse collapsable-details  in ">
+  <div id="steps-3" class="inner-level collapse collapsable-details ">
       <div class="step">
 
 
@@ -299,7 +299,7 @@ $(document).ready(function() {
   <span class="keyword indention">When</span>
   <span class="name">I navigate to the &quot;<span class="argument">car valuation</span>&quot; page</span>
 
-  <span class="lead-duration duration">1.970</span>
+  <span class="lead-duration duration">1.721</span>
 
 </div>
 
@@ -326,7 +326,7 @@ $(document).ready(function() {
   <span class="keyword indention">And</span>
   <span class="name">I should be presented with &quot;<span class="argument">car valuation</span>&quot; page</span>
 
-  <span class="lead-duration duration">0.386</span>
+  <span class="lead-duration duration">0.399</span>
 
 </div>
 
@@ -349,11 +349,11 @@ $(document).ready(function() {
       <div class="step">
 
 
-<div class="brief step-name-And failed">
-  <span class="keyword indention">And</span>
-  <span class="name">I feed the vehicle registration numbers extracted from &quot;<span class="argument">car_input_v2.txt</span>&quot;</span>
+<div class="brief step-name-Then passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I feed the vehicle registration numbers extracted from &quot;<span class="argument">car_input_v2.txt</span>&quot; and compare the output with &quot;<span class="argument">car_output_v2.txt</span>&quot;</span>
 
-  <span class="lead-duration duration">15.320</span>
+  <span class="lead-duration duration">59.370</span>
 
 </div>
 
@@ -361,33 +361,6 @@ $(document).ready(function() {
 
 
 
-
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-4">
-          <a>org.junit.ComparisonFailure:</a>
-      </div>
-      <div id="msg-4" class="collapse collapsable-details  in ">
-        <pre>org.junit.ComparisonFailure: expected:&lt;[SG18HTN,Volkswagen,Golf 1.5 TSI EVO SE Nav Hatchback 5dr Petrol Manual Euro 6 (s/s) (130 ps)
-
-
-AD58VNF,BMW,1 Series 2.0 120d M Sport Coupe 2dr Diesel Manual Euro 4 (177 ps)
-
-
-BW57BOF,Toyota,Yaris 1.0 VVT-i T2 Hatchback 3dr Petrol Manual (127 g/km, 67 bhp)
-
-
-KT17DLX,SKODA,Superb 2.0 TDI SportLine Estate 5dr Diesel DSG Auto 6Spd Euro 6 (s/s) (190 ps)]&gt; but was:&lt;[BMW 1 Series
-120d M Sport 2dr
-AD58VNF]&gt;
-	at org.junit.Assert.assertEquals(Assert.java:117)
-	at org.junit.Assert.assertEquals(Assert.java:146)
-	at stepDefs.VehicleValuationSteps.i_feed_the_extracted_registration_numbers_on_the(VehicleValuationSteps.java:65)
-	at &#10045;.I feed the vehicle registration numbers extracted from &quot;car_input_v2.txt&quot;(classpath:features/carValuation.feature:8)
-</pre>
-      </div>
-    </div>
-  </div>
 
 
 
@@ -407,7 +380,7 @@ AD58VNF]&gt;
 
 
   <div class="inner-level hooks-element-after">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-5">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-4">
 
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -419,13 +392,13 @@ AD58VNF]&gt;
 
     </div>
 
-    <div id="after-5" class="inner-level collapse collapsable-details ">
+    <div id="after-4" class="inner-level collapse collapsable-details ">
         <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
               <span class="location name">stepDefs.Hooks.tearDown()</span>
 
-  <span class="lead-duration duration">0.221</span>
+  <span class="lead-duration duration">0.229</span>
 
           </div>
 

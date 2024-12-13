@@ -11,14 +11,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FileReaderUtil {
-    public static List<String> extractVehicleRegNumbers(String fileName) {
+    public static List<String> extractVehicleRegNumbers(String inputFile) {
 
         List<String> vehicleRegNumbers = new ArrayList<>();
         String regexPattern = "[A-Z]{2}[0-9]{2}\\s?[A-Z]{3}";
         Pattern pattern = Pattern.compile(regexPattern);
 
         try {
-            List<String> lines = Files.readAllLines(Paths.get(fileName));
+            List<String> lines = Files.readAllLines(Paths.get(inputFile));
             for (String line : lines) {
                 Matcher matcher = pattern.matcher(line);
                 while (matcher.find()) {
@@ -28,23 +28,20 @@ public class FileReaderUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        vehicleRegNumbers.forEach(item -> System.out.println(item));
         return vehicleRegNumbers;
     }
 
-    public static StringBuilder readOutputFile(String fileName) throws IOException {
+    public static List<String> readOutputFile(String outputFile) {
+        List<String> output = new ArrayList<>();
 
-        StringBuilder outputVehicleRegistrationResult = new StringBuilder();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(outputFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                outputVehicleRegistrationResult.append(line).append("\n");
+                output.add(line);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        System.out.println(outputVehicleRegistrationResult);
-        return outputVehicleRegistrationResult;
+        return output;
     }
 }

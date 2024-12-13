@@ -6,32 +6,39 @@ import org.openqa.selenium.WebElement;
 
 public class VehicleValuationPage extends BasePage {
 
+    private static final String CAZOO_URL = "https://www.cazoo.co.uk/value-my-car/";
+    private static final String XPATH = "//*[@id=\"vyv-form\"]//";
+
     public VehicleValuationPage(WebDriver driver) {
         super(driver);
     }
+
     public void navigateTo() {
-        driver.get("https://www.cazoo.co.uk/value-my-car/");
+        driver.get(CAZOO_URL);
         acceptCookies();
     }
+
     public void inputRegNumber(String registrationNumbers) {
-        fillInputField("//*[@id=\"vyv-form\"]/div/div[1]/div[1]/input", registrationNumbers);
+        fillInputField(XPATH + "input", registrationNumbers);
     }
+
     public void inputMileage() {
-        fillInputField("//*[@id=\"vyv-form\"]/div/div[1]/div[2]/input", "100");
+        fillInputField(XPATH + "div[2]/input", "100");
     }
+
     public void inputPostcode() {
-        fillInputField("//*[@id=\"vyv-form\"]/div/div[1]/div[3]/input", "NE11FX");
+        fillInputField(XPATH + "div[3]/input", "NE11FX");
     }
+
     public void submit() {
-        WebElement submitBtn = driver.findElement(By.xpath("//*[@id=\"vyv-form\"]/div/div[2]/button"));
+        WebElement submitBtn = driver.findElement(By.xpath(XPATH + "button"));
         submitBtn.click();
     }
+
     public String vehicleDetails() {
-        String vehdeets =
-                driver.findElement(
-                                By.cssSelector("#valueMyVehicle > div > section > ol > li:nth-child(2) > section > div > div.vyv__section.vyv__section--1 > div"))
-                        .getText();
-        return vehdeets;
+        return driver.findElement(
+                        By.cssSelector("#valueMyVehicle > div > section > ol > li:nth-child(2) > section > div > div.vyv__section.vyv__section--1 > div"))
+                .getText();
     }
 
     private void fillInputField(String xpath, String value) {
